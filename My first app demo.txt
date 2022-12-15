@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      title: "Say my name",
+      home: Homepage(),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+    ),
+  );
+}
+
+class Homepage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My First App"),
+      ),
+      body: Container(
+        child: Center(
+          child: Text("Welcome to my first app",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+              )),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Divyanshu Anand"),
+              accountEmail: Text("divyanshu.goku@gmail.com"),
+              currentAccountPicture: Image.network(
+                  "https://avatars.githubusercontent.com/u/95087242?v=4"),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Account"),
+              subtitle: Text("Personal"),
+              trailing: Icon(Icons.edit),
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              subtitle: Text("divyanshu.goku@gmail.com"),
+              trailing: Icon(Icons.send),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
+  }
+}
